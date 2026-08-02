@@ -1,0 +1,46 @@
+# =========================================================
+# .htaccess — Keamanan (HTTPS) + Clean URL untuk triconconsultant.com
+# =========================================================
+# 1. Memaksa semua pengunjung memakai HTTPS (aman/terenkripsi) dan
+#    domain versi "www", supaya tidak ada 4 versi URL berbeda yang
+#    dianggap Google sebagai halaman terpisah:
+#      http://triconconsultant.com       -> dialihkan
+#      http://www.triconconsultant.com   -> dialihkan
+#      https://triconconsultant.com      -> dialihkan
+#      https://www.triconconsultant.com  -> INI yang dipakai (sesuai canonical tag)
+# 2. Membuat /service tampil sebagai service.html TANPA menampilkan
+#    ".html" di address bar, dan otomatis mengarahkan link lama yang
+#    masih pakai ".html" ke versi bersihnya (baik untuk SEO, tidak
+#    dianggap konten duplikat oleh Google).
+# =========================================================
+
+RewriteEngine On
+RewriteBase /
+
+# ---- Paksa HTTPS + www (harus paling atas, sebelum aturan lain) ----
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^triconconsultant\.com$ [NC]
+RewriteRule ^ https://www.triconconsultant.com%{REQUEST_URI} [R=301,L]
+
+# 1) Kalau ada yang mengetik/klik link dengan akhiran .html secara
+#    langsung (mis. triconconsultant.com/service.html), arahkan
+#    otomatis ke versi bersih (triconconsultant.com/service)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2) Kalau yang diakses adalah /service (tanpa .html), tapi file
+#    fisiknya bernama service.html, tampilkan file itu tanpa
+#    mengubah tampilan URL di address bar
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# ---- Halaman 404 kustom ----
+ErrorDocument 404 /404.html
+
+# ---- Header keamanan tambahan (ringan, aman untuk situs statis) ----
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

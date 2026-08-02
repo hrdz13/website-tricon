@@ -1,0 +1,43 @@
+# ---------------------------------------------------------
+# Arsip pribadi — tidak perlu ikut ke repo (total ±98 MB)
+# Berisi file zip cadangan, PSD logo, dan AI background.
+# Dokumentasi website tetap disertakan (lihat pengecualian di bawah).
+# ---------------------------------------------------------
+Backup/*
+!Backup/DOKUMENTASI-WEBSITE.md
+
+# ---------------------------------------------------------
+# File verifikasi Google Search Console — hanya berguna saat
+# terpasang di server, tidak ada gunanya di dalam repo.
+# ---------------------------------------------------------
+google*.html
+
+# ---------------------------------------------------------
+# Sampah / file yang tidak sengaja ada
+# ---------------------------------------------------------
+download
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------
+# Materi internal klien — TIDAK boleh ikut ke repo publik.
+# Foto ruang kontrol ini memperlihatkan dashboard G4S/PJB
+# beserta nama-nama personel di log patroli, dan tidak dipakai
+# di halaman mana pun (kartu Duta Realtindo masih dinonaktifkan).
+# ---------------------------------------------------------
+frontend/images/portfolio/duta-realtindo/gallery-4.jpg
+
+# ---------------------------------------------------------
+# Gambar lama yang sudah tidak dirujuk halaman mana pun.
+# Masih tersimpan di komputer, hanya tidak ikut ke repo.
+# ---------------------------------------------------------
+frontend/images/favicon-16.png
+frontend/images/favicon-32.png
+frontend/images/favicon-48.png
+frontend/images/favicon-180.png
+frontend/images/favicon-512.png
+frontend/images/favicon1.ico
+frontend/images/logo-tricon-2.png
+frontend/images/portfolio/kegiatan sidrap.jpeg
+frontend/images/portfolio/transelar/Trans-Selar-3.003.jpeg

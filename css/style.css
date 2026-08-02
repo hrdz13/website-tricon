@@ -1,0 +1,842 @@
+/* =========================================================
+   TRICON MITRA UTAMA KONSULTAN — Design System v2
+   Concept: "Corporate Energy" — big blue, rounded, confident
+   (arah visual terinspirasi situs korporat BUMN energi:
+   header biru tegas, hero besar, kartu membulat dengan bayangan)
+
+   Palette:
+     --bg         #F4F7FB  latar halaman (biru sangat muda)
+     --surface    #FFFFFF  kartu / panel
+     --ink        #0B2340  teks utama (biru tua nyaris hitam)
+     --ink-soft   #4E6079  teks sekunder
+     --line       #E1E8F0  garis tipis / border
+     --blue-deep  #063B7A  biru korporat utama (header, footer, CTA)
+     --blue       #0B63C4  biru aksen / hover / link
+     --blue-sky   #2FA3E0  aksen sekunder, gradient
+     --gold       #F2A93C  aksen kontras (badge, highlight kecil)
+     --wa         #25D366  WhatsApp
+   Type:
+     Display : 'Plus Jakarta Sans' — modern, korporat, tegas
+     Body    : 'Inter' — netral, mudah dibaca
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#F4F7FB;
+  --surface:#FFFFFF;
+  --ink:#0B2340;
+  --ink-soft:#4E6079;
+  --line:#E1E8F0;
+  --blue-deep:#063B7A;
+  --blue:#0B63C4;
+  --blue-sky:#2FA3E0;
+  --gold:#F2A93C;
+  --wa:#25D366;
+  --radius:14px;
+  --radius-sm:8px;
+  --max:1180px;
+  --shadow:0 10px 30px rgba(6,59,122,.10);
+  --shadow-sm:0 4px 14px rgba(6,59,122,.08);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+/* Jaring pengaman: semua ikon SVG di situs ini dibatasi ukurannya secara
+   default, supaya kalau suatu saat file style.css gagal termuat sempurna
+   (cache browser, upload belum lengkap, dll), ikon tidak akan tampil
+   raksasa memenuhi layar seperti pernah terjadi sebelumnya. Ukuran spesifik
+   tiap ikon tetap diatur masing-masing class (mis. width:22px), aturan
+   ini hanya jadi batas atas darurat. */
+svg{max-width:64px;max-height:64px;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+
+h1,h2,h3,h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  line-height:1.2;
+  margin:0 0 .5em;
+  color:var(--ink);
+}
+
+.mono{font-family:'Inter',sans-serif;}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
+
+/* ---------- Eyebrow label ---------- */
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.eyebrow::before{
+  content:'';
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+  display:inline-block;
+}
+
+/* ---------- Top utility bar (khas situs korporat) ---------- */
+.top-bar{
+  background:var(--blue-deep);color:rgba(255,255,255,.85);
+  font-size:13px;
+}
+.top-bar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  height:38px;
+}
+.top-bar .tb-links{display:flex;gap:22px;}
+.top-bar a{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.85);}
+.top-bar a:hover{color:#fff;}
+.top-bar svg{width:14px;height:14px;flex:none;}
+.top-bar .tb-social{display:flex;gap:10px;align-items:center;}
+.top-bar .tb-social svg{width:14px;height:14px;}
+
+/* ---------- Saklar Bahasa (ID / EN) ---------- */
+.lang-switch{
+  display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.12);
+  border-radius:999px;padding:2px;margin-left:14px;
+}
+.lang-switch button{
+  border:none;background:transparent;color:rgba(255,255,255,.75);
+  font-family:'Inter';font-weight:700;font-size:11px;letter-spacing:.04em;
+  padding:4px 10px;border-radius:999px;cursor:pointer;transition:.15s ease;
+}
+.lang-switch button.active{background:#fff;color:var(--blue-deep);}
+.lang-switch button:not(.active):hover{color:#fff;}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;left:0;right:0;z-index:100;
+  background:#fff;
+  box-shadow:0 2px 16px rgba(6,59,122,.08);
+}
+.site-header .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  height:82px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:19px;color:var(--blue-deep);}
+.brand img{height:38px;width:auto;}
+.brand small{
+  display:block;font-family:'Inter';font-weight:500;font-size:10.5px;
+  letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;
+}
+
+.nav{display:flex;align-items:center;gap:2px;}
+.nav a{
+  font-family:'Inter';font-size:14px;font-weight:600;
+  padding:10px 16px;color:var(--ink-soft);position:relative;border-radius:999px;
+}
+.nav a:hover{color:var(--blue);background:#EFF5FC;}
+.nav a.active{color:var(--blue-deep);background:#E7F1FC;}
+.nav-cta{
+  margin-left:14px;background:var(--blue-deep);color:#fff !important;
+  padding:12px 24px !important;border-radius:999px;box-shadow:var(--shadow-sm);
+}
+.nav-cta:hover{background:var(--blue) !important;color:#fff !important;}
+
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:var(--radius-sm);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{
+  content:'';display:block;width:18px;height:2px;background:var(--blue-deep);position:relative;
+}
+.nav-toggle span::before{position:absolute;top:-6px;}
+.nav-toggle span::after{position:absolute;top:6px;}
+
+/* ---------- Hero (big corporate banner) ---------- */
+.hero{
+  position:relative;
+  padding:88px 0 80px;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(47,163,224,.35), transparent 60%),
+    linear-gradient(120deg,var(--blue-deep) 0%, #0A4F9C 55%, var(--blue) 100%);
+  overflow:hidden;
+  color:#fff;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.10) 1.5px, transparent 1.5px);
+  background-size:26px 26px;
+  opacity:.5;
+  pointer-events:none;
+}
+/* Teks hero memakai lebar penuh kolom, supaya kalimat mengalir sampai tepi kanan
+   dan tidak putus di tengah lalu turun ke baris berikutnya. Di layar sempit (HP)
+   lebarnya otomatis mengikuti layar, jadi tidak perlu aturan tambahan. */
+.hero-inner{position:relative;z-index:2;max-width:none;}
+.hero .eyebrow{color:#BFE0F7;}
+.hero .eyebrow::before{background:var(--gold);}
+.hero h1{font-size:clamp(32px,4.6vw,50px);color:#fff;letter-spacing:-.01em;}
+.hero h1 .accent{color:var(--gold);}
+.hero p.lead{color:rgba(255,255,255,.85);font-size:17.5px;max-width:none;margin:16px 0 32px;}
+
+/* Catatan: dulu di bawah hero ada "strip informasi" kotak putih 3 kolom
+   (.title-block) berisi Perusahaan/Bidang/Lokasi di halaman Home dan
+   Lingkup/Proyek/Lokasi di halaman O&M Service. Dihapus atas permintaan
+   pemilik website karena isinya sudah diulang di bagian lain halaman
+   (judul hero, About Us, top-bar, footer, kartu portofolio) dan tampilannya
+   sulit dibuat rapi di berbagai lebar layar. Seluruh CSS-nya ikut dibersihkan
+   supaya tidak menyisakan aturan yang tidak terpakai. */
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter';font-weight:700;font-size:14.5px;
+  padding:14px 28px;border-radius:999px;
+  border:1px solid transparent;cursor:pointer;transition:.15s ease;
+}
+.btn-primary{background:var(--gold);color:var(--blue-deep);box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:#E9992A;}
+.btn-outline{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4);}
+.btn-outline:hover{background:rgba(255,255,255,.18);}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:var(--shadow-sm);}
+.btn-wa:hover{background:#1fb355;}
+.btn-soft{background:#fff;color:var(--blue-deep);border-color:var(--line);box-shadow:var(--shadow-sm);}
+.btn-soft:hover{border-color:var(--blue);color:var(--blue);}
+.btn svg{width:16px;height:16px;flex:none;}
+
+/* ---------- Section shell ---------- */
+section{padding:88px 0;}
+section.tight{padding:64px 0;}
+.section-head{max-width:none;margin-bottom:48px;}
+.section-head p{color:var(--ink-soft);font-size:16px;}
+
+/* ---------- About / intro paragraph card ---------- */
+.intro-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+  padding:36px 40px;font-size:17px;color:var(--ink-soft);
+  text-align:justify;text-justify:inter-word;
+}
+
+/* ---------- Pillars / feature cards ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pillar{
+  background:var(--surface);padding:32px 28px;border-radius:var(--radius);
+  border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:.15s ease;
+}
+.pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.pillar .num{
+  font-family:'Plus Jakarta Sans';color:var(--blue);font-size:14px;font-weight:800;margin-bottom:14px;
+  display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;
+  background:#E7F1FC;border-radius:50%;
+}
+.pillar h3{font-size:19px;margin-bottom:10px;color:var(--blue-deep);}
+.pillar p{color:var(--ink-soft);font-size:14.5px;}
+
+/* ---------- Service list ---------- */
+.service-index{border-top:1px solid var(--line);}
+.service-index li{
+  display:flex;align-items:center;gap:16px;padding:16px 4px;border-bottom:1px solid var(--line);
+  font-family:'Plus Jakarta Sans';font-weight:600;font-size:15.5px;
+}
+.service-index li .tag{
+  font-family:'Inter';font-size:12px;font-weight:700;color:#fff;background:var(--blue);
+  min-width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+}
+
+/* ---------- Service icon grid (kartu ikon layanan) ---------- */
+.service-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  /* Penomoran kartu dihitung otomatis oleh browser — tidak perlu menulis
+     angka di HTML. Kalau kartu ditambah, dihapus, atau ditukar urutannya,
+     nomornya ikut menyesuaikan sendiri. */
+  counter-reset:layanan;
+}
+.service-mini{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 18px 26px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;
+  box-shadow:var(--shadow-sm);transition:.2s ease;
+  counter-increment:layanan;
+}
+.service-mini::before{
+  content:counter(layanan,decimal-leading-zero);
+  font-family:'Plus Jakarta Sans';font-weight:800;font-size:12px;letter-spacing:.08em;
+  color:var(--blue);line-height:1;
+}
+.service-mini:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue);}
+.service-mini .ic{
+  width:52px;height:52px;border-radius:50%;background:var(--blue-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex:none;
+  transition:.2s ease;overflow:hidden;
+}
+.service-mini:hover .ic{background:var(--blue);}
+.service-mini .ic svg{width:23px;height:23px;max-width:23px;max-height:23px;flex:none;display:block;}
+.service-mini h4{
+  font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;line-height:1.35;
+  color:var(--ink);margin:0;
+}
+@media (max-width:1000px){
+  .service-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:720px){
+  .service-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .service-mini{padding:20px 12px 22px;gap:11px;}
+  .service-mini .ic{width:46px;height:46px;}
+  .service-mini h4{font-size:13.5px;}
+}
+/* Di HP kartu tetap 2 kolom. Kartu rata-tengah dengan ikon bulat justru terlihat
+   kosong kalau dipaksa 1 kolom selebar layar, jadi aturan 1 kolom lama dihapus. */
+.service-grid .reveal:nth-child(4n+1){transition-delay:.02s;}
+.service-grid .reveal:nth-child(4n+2){transition-delay:.08s;}
+.service-grid .reveal:nth-child(4n+3){transition-delay:.14s;}
+.service-grid .reveal:nth-child(4n){transition-delay:.2s;}
+
+/* ---------- Featured service cards ---------- */
+.service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.service-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:.15s ease;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.service-card .thumb{
+  height:140px;position:relative;display:flex;align-items:flex-end;padding:16px 20px;
+  background-image:linear-gradient(135deg,var(--blue-deep),var(--blue-sky));
+}
+.service-card .thumb span{font-family:'Inter';font-size:11.5px;font-weight:700;color:#fff;letter-spacing:.04em;background:rgba(0,0,0,.18);padding:4px 10px;border-radius:999px;}
+.service-card .body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column;}
+.service-card h3{font-size:17px;color:var(--blue-deep);}
+.service-card p{color:var(--ink-soft);font-size:14px;flex:1;}
+.service-card .more{margin-top:14px;font-family:'Inter';font-size:13px;font-weight:700;color:var(--blue);}
+
+/* ---------- Portfolio cards (lama, dipertahankan agar tidak error jika masih dipakai) ---------- */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.portfolio-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;position:relative;transition:.15s ease;box-shadow:var(--shadow-sm);
+}
+.portfolio-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:var(--shadow);}
+.portfolio-card .sector{
+  font-family:'Inter';font-size:11.5px;font-weight:700;color:var(--blue-deep);text-transform:uppercase;letter-spacing:.04em;
+  margin-bottom:12px;display:inline-block;background:#E7F1FC;padding:4px 10px;border-radius:999px;
+}
+.portfolio-card h3{font-size:18px;margin-bottom:6px;color:var(--blue-deep);}
+.portfolio-card .loc{color:var(--ink-soft);font-size:13.5px;margin-bottom:12px;}
+.portfolio-card .desc{color:var(--ink-soft);font-size:14px;margin:0 0 16px;}
+.portfolio-card .visit{
+  display:inline-flex;align-items:center;gap:6px;font-family:'Inter';font-weight:700;font-size:13px;color:var(--blue);
+}
+.portfolio-card .visit svg{width:14px;height:14px;}
+.portfolio-card .visit:hover{color:var(--blue-deep);}
+
+/* =========================================================
+   PORTFOLIO — GALLERY CARD (versi baru, ala studi kasus)
+   Dipakai di portfolio.html mulai dari pembaruan ini.
+   ========================================================= */
+.pf-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.pf-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:visible;box-shadow:var(--shadow-sm);cursor:pointer;border:none;position:relative;
+  padding:0;text-align:left;font:inherit;color:inherit;width:100%;
+  display:flex;flex-direction:column;height:100%;
+}
+.pf-card .pf-cover{
+  position:relative;flex:1 1 190px;min-height:190px;overflow:hidden;background:var(--blue-deep);
+  border-radius:var(--radius) var(--radius) 0 0;
+}
+.pf-card .pf-cover img{
+  width:100%;height:100%;object-fit:cover;transition:transform .5s ease;
+}
+.pf-card:hover .pf-cover img{transform:scale(1.08);}
+.pf-card .pf-cover::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(6,59,122,0) 40%, rgba(6,59,122,.55) 100%);
+}
+.pf-card .pf-logo{
+  flex:none;position:relative;z-index:3;margin:-32px 0 0 18px;
+  width:64px;height:64px;border-radius:50%;overflow:hidden;
+  border:3px solid #fff;box-shadow:0 6px 16px rgba(6,59,122,.22);background:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.pf-card .pf-logo img{width:100%;height:100%;object-fit:contain;padding:8px;box-sizing:border-box;}
+.pf-card .pf-sector{
+  position:absolute;right:14px;top:14px;z-index:2;
+  font-family:'Inter';font-size:11px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em;
+  background:rgba(6,59,122,.55);backdrop-filter:blur(3px);padding:5px 12px;border-radius:999px;
+}
+.pf-card .pf-body{flex:none;padding:16px 22px 24px;border-radius:0 0 var(--radius) var(--radius);}
+.pf-card h3{font-size:17px;margin-bottom:6px;color:var(--blue-deep);}
+.pf-card .pf-loc{color:var(--ink-soft);font-size:13px;margin-bottom:10px;}
+.pf-card .pf-desc{
+  color:var(--ink-soft);font-size:14px;line-height:1.55;margin:0 0 14px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.pf-card .pf-more{
+  display:inline-flex;align-items:center;gap:6px;font-family:'Inter';font-weight:700;font-size:13px;color:var(--blue);
+}
+.pf-card .pf-more svg{width:14px;height:14px;transition:transform .2s ease;}
+.pf-card:hover .pf-more svg{transform:translateX(4px);}
+
+/* ---- Animasi muncul saat discroll ---- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.pf-grid .reveal:nth-child(3n+1){transition-delay:.05s;}
+.pf-grid .reveal:nth-child(3n+2){transition-delay:.15s;}
+.pf-grid .reveal:nth-child(3n){transition-delay:.25s;}
+
+/* ---- Modal detail (native <dialog>) ---- */
+dialog.pf-modal{
+  border:none;border-radius:var(--radius);padding:0;max-width:720px;width:92vw;
+  box-shadow:0 30px 60px rgba(6,59,122,.35);
+  opacity:0;transform:translateY(24px) scale(.98);
+  transition:opacity .25s ease, transform .25s ease, overlay .25s ease allow-discrete, display .25s ease allow-discrete;
+}
+dialog.pf-modal[open]{opacity:1;transform:translateY(0) scale(1);}
+@starting-style{
+  dialog.pf-modal[open]{opacity:0;transform:translateY(24px) scale(.98);}
+}
+dialog.pf-modal::backdrop{
+  background:rgba(6,20,40,.55);backdrop-filter:blur(2px);
+  opacity:0;transition:opacity .25s ease allow-discrete;
+}
+dialog.pf-modal[open]::backdrop{opacity:1;}
+
+.pf-modal-head{position:relative;}
+.pf-modal-head .pf-gallery{
+  display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  aspect-ratio:16/9;height:auto;width:100%;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:var(--radius) var(--radius) 0 0;
+}
+.pf-modal-head .pf-gallery::-webkit-scrollbar{display:none;}
+.pf-modal-head .pf-gallery img{
+  flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;
+}
+/* ---- Foto dibungkus JS jadi .pf-slide, dengan area tap kiri/kanan langsung di atas foto ---- */
+.pf-modal-head .pf-gallery .pf-slide{
+  position:relative;flex:0 0 100%;width:100%;aspect-ratio:16/9;
+  scroll-snap-align:start;overflow:hidden;background:var(--blue-deep);
+}
+.pf-modal-head .pf-gallery .pf-slide img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+}
+.pf-slide-tap{
+  position:absolute;inset:0;width:100%;height:100%;display:flex;
+  border:none;background:transparent;padding:0;cursor:pointer;
+}
+.pf-slide-arrow{
+  width:50%;height:100%;display:flex;align-items:center;opacity:0;
+  transition:opacity .2s ease;
+}
+.pf-slide-arrow.left{justify-content:flex-start;padding-left:14px;background:linear-gradient(90deg,rgba(6,20,40,.32),transparent 60%);}
+.pf-slide-arrow.right{justify-content:flex-end;padding-right:14px;background:linear-gradient(270deg,rgba(6,20,40,.32),transparent 60%);}
+.pf-slide-tap:hover .pf-slide-arrow{opacity:1;}
+.pf-slide-arrow svg{
+  width:18px;height:18px;color:#fff;background:rgba(6,59,122,.6);
+  border-radius:50%;padding:9px;box-sizing:content-box;backdrop-filter:blur(3px);
+}
+@media (hover:none){ .pf-slide-arrow{opacity:.9;} }
+.pf-dots{
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:4;
+  display:flex;gap:7px;
+}
+.pf-dots button{
+  width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);
+  border:none;padding:0;cursor:pointer;transition:background .2s ease,transform .2s ease;
+}
+.pf-dots button.active{background:#fff;transform:scale(1.35);}
+.pf-modal-head .pf-hint{
+  position:absolute;top:12px;left:14px;z-index:2;
+  font-family:'Inter';font-size:11.5px;color:#fff;background:rgba(6,59,122,.55);
+  padding:4px 10px;border-radius:999px;backdrop-filter:blur(3px);
+}
+.pf-modal-close{
+  position:absolute;top:12px;right:12px;z-index:3;width:34px;height:34px;border-radius:50%;
+  background:rgba(6,59,122,.65);border:none;color:#fff;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;backdrop-filter:blur(3px);
+}
+.pf-modal-close svg{width:16px;height:16px;}
+.pf-modal-close:hover{background:var(--blue-deep);}
+
+.pf-modal-body{padding:26px 28px 30px;}
+.pf-modal-body .pf-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;margin-top:4px;position:relative;z-index:2;}
+.pf-modal-body .pf-logo-row img{
+  width:64px;height:64px;border-radius:50%;border:3px solid #fff;box-shadow:0 6px 16px rgba(6,59,122,.22);
+  object-fit:contain;padding:8px;box-sizing:border-box;background:#fff;
+}
+.pf-modal-body h3{font-size:21px;margin:0 0 4px;color:var(--blue-deep);}
+.pf-modal-body .pf-loc{color:var(--ink-soft);font-size:13.5px;margin-bottom:16px;}
+.pf-modal-body .pf-desc{color:var(--ink-soft);font-size:15px;line-height:1.7;margin-bottom:20px;}
+
+/* ---- Tombol "Kunjungi Website" di dalam modal detail portfolio ---- */
+.pf-visit{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter';font-weight:700;font-size:14px;color:#fff;
+  background:var(--blue);padding:11px 20px;border-radius:999px;
+  box-shadow:var(--shadow-sm);transition:.15s ease;
+}
+.pf-visit:hover{background:var(--blue-deep);transform:translateY(-1px);}
+.pf-visit svg{width:15px;height:15px;flex:none;}
+
+@media (max-width:900px){
+  .pf-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .pf-grid{grid-template-columns:1fr;}
+  dialog.pf-modal{width:94vw;}
+}
+
+/* ---------- Our Clients (strip logo) ---------- */
+.clients{padding:56px 0;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.clients-head{text-align:center;max-width:none;margin:0 auto 36px;}
+.clients-head .eyebrow{justify-content:center;}
+.clients-head h2{font-size:22px;margin:0;}
+.clients-logos{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:28px;
+}
+.clients-logos a{
+  width:76px;height:76px;border-radius:50%;overflow:hidden;
+  border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;
+  filter:grayscale(100%);opacity:.65;transition:.25s ease;
+}
+.clients-logos a:hover{filter:grayscale(0%);opacity:1;transform:translateY(-4px);box-shadow:var(--shadow-sm);border-color:var(--blue);}
+.clients-logos img{width:100%;height:100%;object-fit:contain;padding:14px;box-sizing:border-box;}
+.clients-more{text-align:center;margin-top:30px;}
+.clients-more a{
+  font-family:'Inter';font-weight:700;font-size:13.5px;color:var(--blue);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.clients-more a:hover{color:var(--blue-deep);}
+.clients-more svg{width:14px;height:14px;}
+.clients-logos a.reveal:nth-child(5n+1){transition-delay:.03s;}
+.clients-logos a.reveal:nth-child(5n+2){transition-delay:.09s;}
+.clients-logos a.reveal:nth-child(5n+3){transition-delay:.15s;}
+.clients-logos a.reveal:nth-child(5n+4){transition-delay:.21s;}
+.clients-logos a.reveal:nth-child(5n){transition-delay:.27s;}
+@media (max-width:640px){
+  .clients-logos a{width:64px;height:64px;}
+}
+
+/* ---------- Project Track Record (daftar 143 proyek dari Excel) ---------- */
+.tr-head{max-width:none;margin-bottom:8px;}
+.tr-head p{color:var(--ink-soft);font-size:13px;margin-top:8px;}
+
+.tr-controls{
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+  margin:28px 0 24px;
+}
+.tr-tabs{
+  display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;flex:1 1 auto;min-width:0;
+  scrollbar-width:thin;
+}
+.tr-tab{
+  flex:none;font-family:'Inter';font-weight:700;font-size:13px;white-space:nowrap;
+  padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  cursor:pointer;transition:.15s ease;
+}
+.tr-tab:hover{border-color:var(--blue);color:var(--blue);}
+.tr-tab.active{background:var(--blue-deep);border-color:var(--blue-deep);color:#fff;}
+
+.tr-search{
+  position:relative;flex:0 0 280px;max-width:100%;
+}
+.tr-search svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-soft);
+}
+.tr-search input{
+  width:100%;padding:11px 14px 11px 38px;border:1px solid var(--line);border-radius:999px;
+  font-family:'Inter';font-size:14px;color:var(--ink);background:#fff;
+}
+.tr-search input:focus{outline:none;border-color:var(--blue);}
+
+.tr-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.tr-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 20px 18px;box-shadow:var(--shadow-sm);transition:.15s ease;
+}
+.tr-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow);}
+.tr-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;}
+.tr-tag{
+  font-family:'Inter';font-size:10.5px;font-weight:700;color:var(--blue-deep);text-transform:uppercase;letter-spacing:.03em;
+  background:#E7F1FC;padding:4px 10px;border-radius:999px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%;
+}
+.tr-year{font-family:'Inter';font-size:12px;font-weight:700;color:var(--ink-soft);flex:none;}
+.tr-project{font-family:'Plus Jakarta Sans';font-size:15px;font-weight:700;color:var(--ink);margin:0 0 10px;line-height:1.35;}
+.tr-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;}
+.tr-meta-item{
+  display:flex;align-items:flex-start;gap:7px;font-size:13px;color:var(--ink-soft);line-height:1.4;
+}
+.tr-meta-item svg{width:14px;height:14px;flex:none;margin-top:2px;color:var(--blue);}
+.tr-scope{font-size:12.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px;line-height:1.5;}
+
+.tr-empty{text-align:center;color:var(--ink-soft);padding:40px 0;font-size:14.5px;}
+
+.tr-more-wrap{text-align:center;margin-top:30px;}
+#tr-load-more{color:var(--blue-deep);}
+.tr-count{font-family:'Inter';font-size:12.5px;color:var(--ink-soft);margin-top:12px;}
+
+@media (max-width:1000px){
+  .tr-list{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:640px){
+  .tr-list{grid-template-columns:1fr;}
+  .tr-controls{flex-direction:column;align-items:stretch;}
+  .tr-search{flex:none;}
+  .tr-tabs{flex-wrap:wrap;overflow-x:visible;padding-bottom:0;gap:8px;}
+  .tr-tab{flex:none;font-size:12.5px;padding:8px 13px;}
+}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;}
+.contact-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);}
+.contact-item .ic{
+  width:42px;height:42px;flex:none;border-radius:50%;background:#E7F1FC;
+  display:flex;align-items:center;justify-content:center;color:var(--blue-deep);
+}
+.contact-item .ic svg{width:19px;height:19px;}
+.contact-item h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter';font-weight:700;color:var(--ink-soft);margin-bottom:4px;}
+.contact-item p{margin:0;font-size:15px;}
+.contact-item a{color:var(--blue);}
+
+.wa-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow-sm);}
+.field{margin-bottom:18px;}
+.field label{display:block;font-family:'Inter';font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:6px;}
+.field input,.field textarea{
+  width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);padding:13px 15px;
+  font-family:'Inter';font-size:15px;color:var(--ink);background:var(--bg);
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);background:#fff;}
+.field textarea{resize:vertical;min-height:110px;}
+
+/* ---------- Map ---------- */
+.map-frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;height:260px;margin-top:8px;box-shadow:var(--shadow-sm);}
+.map-frame iframe{width:100%;height:100%;border:0;}
+
+/* ---------- CTA band ---------- */
+section.cta-band{padding:24px 0 88px;background:none;}
+.cta-band .wrap{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  background:linear-gradient(120deg,var(--blue-deep),var(--blue));color:#fff;
+  padding:48px 44px;border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.cta-band h2{color:#fff;font-size:26px;margin:0;}
+.cta-band p{color:rgba(255,255,255,.75);margin:6px 0 0;}
+@media (max-width:600px){ .cta-band .wrap{padding:34px 26px;} }
+
+/* ---------- Footer ---------- */
+footer{background:var(--blue-deep);color:rgba(255,255,255,.65);padding:52px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.14);}
+footer h4{color:#fff;font-family:'Inter';font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+footer .brand{color:#fff;}
+footer p{font-size:14px;margin:0 0 10px;}
+footer a{font-size:14px;display:block;margin-bottom:8px;color:rgba(255,255,255,.65);}
+footer a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;font-size:13px;flex-wrap:wrap;gap:10px;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{
+  width:36px;height:36px;border:1px solid rgba(255,255,255,.24);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0;
+}
+.footer-social svg{width:16px;height:16px;}
+
+/* ---------- Floating WhatsApp ---------- */
+.float-wa{
+  position:fixed;right:24px;bottom:24px;z-index:90;
+  width:58px;height:58px;border-radius:50%;background:var(--wa);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(37,211,102,.4);
+}
+.float-wa svg{width:28px;height:28px;fill:#fff;}
+
+/* ---------- Back to Top ---------- */
+.back-to-top{
+  position:fixed;right:24px;bottom:94px;z-index:89;
+  width:46px;height:46px;border-radius:50%;background:var(--blue-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:.25s ease;border:none;cursor:pointer;padding:0;
+}
+.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.back-to-top:hover{background:var(--blue);}
+.back-to-top svg{width:20px;height:20px;}
+@media (max-width:640px){
+  .back-to-top{right:18px;bottom:86px;width:42px;height:42px;}
+}
+@media (max-width:900px){
+  .grid-3,.service-cards,.portfolio-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .top-bar .tb-links a:nth-child(3){display:none;}
+}
+@media (max-width:720px){
+  .top-bar{display:none;}
+  .nav{
+    position:fixed;top:82px;left:0;right:0;bottom:0;background:#fff;
+    flex-direction:column;align-items:stretch;padding:12px 24px;
+    transform:translateX(100%);transition:.2s ease;border-top:1px solid var(--line);
+  }
+  .nav.open{transform:translateX(0);}
+  .nav a{padding:16px 4px;border-bottom:1px solid var(--line);width:100%;border-radius:0;}
+  .nav-cta{margin-left:0;text-align:center;justify-content:center;display:flex;border-radius:999px;}
+  .nav-toggle{display:flex;}
+  .grid-3,.service-cards,.portfolio-grid{grid-template-columns:1fr;}
+  .cta-band .wrap{flex-direction:column;align-items:flex-start;}
+}
+
+/* Rata kanan-kiri (justify) hanya enak dilihat kalau kolomnya cukup lebar.
+   Di layar sempit (HP), justify malah bikin jarak antar kata melebar tidak
+   beraturan -- jadi dikembalikan ke rata kiri biasa di sini. */
+/* Paragraf penjelas dibuat rata kanan-kiri (justify) supaya tepi kanannya lurus,
+   mengikuti pola yang sudah dipakai .intro-card di halaman Home. */
+.hero p.lead,
+.section-head p,
+.tr-head p{text-align:justify;text-justify:inter-word;}
+
+@media (max-width:640px){
+  .intro-card{text-align:left;padding:26px 24px;}
+  /* Di layar sempit, justify bikin jarak antar kata melebar tidak beraturan */
+  .hero p.lead,
+  .section-head p,
+  .tr-head p{text-align:left;}
+}
+
+/* =========================================================
+   O&M WIND TURBINE — halaman om-wind-turbine.html
+   =========================================================
+   Kartu portofolio proyek turbin angin. Isinya dibangun otomatis
+   oleh js/wind-render.js dari data di js/wind-data.js.
+
+   Ada 2 bentuk tampilan, dipilih otomatis:
+   - .wt-grid.is-single + .wt-card--feature  -> saat baru ada 1 proyek
+     (foto di kiri, keterangan di kanan, tampil besar & berisi)
+   - .wt-grid biasa                          -> saat proyek 2 atau lebih
+     (berubah jadi grid kartu, foto di atas keterangan di bawah)
+   Tidak perlu mengubah CSS ini saat menambah proyek baru.
+   ========================================================= */
+/* align-items:stretch -> semua kartu dalam satu baris jadi sama tinggi,
+   dan label lingkup pekerjaan (.wt-scope) rata di bagian bawah kartu */
+.wt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+.wt-grid.is-single{grid-template-columns:1fr;}
+
+.wt-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-sm);transition:.18s ease;
+  display:flex;flex-direction:column;
+}
+.wt-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+
+/* ---- Foto proyek (tombol pembuka jendela detail) ---- */
+.wt-media{
+  position:relative;display:block;width:100%;margin:0;padding:0;border:0;
+  background:var(--blue-deep);cursor:pointer;overflow:hidden;text-align:left;
+}
+.wt-card:not(.wt-card--feature) .wt-media{aspect-ratio:4/3;}
+.wt-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 45%;
+  transition:transform .45s ease;
+}
+.wt-card:hover .wt-media img{transform:scale(1.05);}
+.wt-media::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:45%;
+  background:linear-gradient(to top,rgba(6,35,64,.78),transparent);
+  pointer-events:none;
+}
+.wt-sector{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:'Inter';font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--blue-deep);background:var(--gold);
+  border-radius:999px;padding:6px 13px;
+}
+.wt-view{
+  position:absolute;left:16px;bottom:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter';font-size:13.5px;font-weight:700;color:#fff;
+}
+.wt-view svg{width:16px;height:16px;flex:none;transition:transform .2s ease;}
+.wt-card:hover .wt-view svg{transform:translateX(4px);}
+
+/* ---- Keterangan proyek ---- */
+.wt-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1;}
+.wt-top{display:flex;align-items:center;gap:10px;margin-bottom:13px;}
+.wt-status{
+  font-family:'Inter';font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:#0E7A3C;background:#E3F6EA;
+  border:1px solid #C6EBD5;border-radius:999px;padding:5px 12px;
+}
+.wt-year{
+  margin-left:auto;font-family:'Plus Jakarta Sans';font-weight:700;
+  font-size:13px;color:var(--ink-soft);
+}
+.wt-title{font-size:19px;line-height:1.3;color:var(--blue-deep);margin:0 0 16px;}
+.wt-client{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);
+}
+.wt-client-logo{
+  width:46px;height:46px;flex:none;object-fit:contain;padding:5px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+}
+.wt-client-info{display:flex;flex-direction:column;min-width:0;}
+.wt-client-name{font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;color:var(--ink);}
+.wt-client-note{font-size:12.5px;color:var(--ink-soft);}
+.wt-loc{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--ink-soft);margin:0 0 12px;}
+.wt-loc svg{width:15px;height:15px;max-width:15px;max-height:15px;flex:none;color:var(--blue);}
+.wt-desc{font-size:14.5px;color:var(--ink-soft);margin:0 0 18px;}
+.wt-scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding:0;}
+.wt-chip{
+  font-family:'Inter';font-size:12.5px;font-weight:600;color:var(--blue-deep);
+  background:#EFF5FC;border:1px solid #DCE9F7;border-radius:999px;padding:6px 12px;
+}
+
+/* ---- Bentuk "1 proyek" : foto di kiri, keterangan di kanan ---- */
+.wt-card--feature{display:grid;grid-template-columns:minmax(0,42%) 1fr;align-items:stretch;}
+.wt-card--feature:hover{transform:none;}
+.wt-card--feature .wt-media{height:100%;min-height:400px;}
+/* Foto dipasang absolut supaya TINGGI KARTU ditentukan oleh keterangannya,
+   bukan oleh ukuran asli fotonya. Tanpa ini, foto potret (misal hasil jepretan
+   HP) akan membuat kartu jadi terlalu tinggi dan muncul ruang kosong. */
+.wt-card--feature .wt-media img{position:absolute;inset:0;}
+.wt-card--feature .wt-body{padding:36px 40px;}
+.wt-card--feature .wt-title{font-size:25px;margin-bottom:20px;}
+.wt-card--feature .wt-desc{font-size:15.5px;margin-bottom:22px;}
+
+/* ---- Jendela detail versi wind: foto ditampilkan UTUH (tidak terpotong),
+        supaya foto potret maupun mendatar sama-sama enak dilihat ---- */
+.wt-modal .pf-gallery{
+  aspect-ratio:auto;height:min(58vh,500px);background:var(--blue-deep);
+}
+.wt-modal .pf-gallery img{object-fit:contain;}
+.wt-modal .pf-gallery .pf-slide{aspect-ratio:auto;height:100%;}
+.wt-modal .pf-gallery .pf-slide img{object-fit:contain;}
+
+/* ---- Responsif ---- */
+@media (max-width:1000px){
+  .wt-grid{grid-template-columns:repeat(2,1fr);}
+  /* menu jadi 5 item — rapatkan sedikit supaya tetap muat satu baris */
+  .nav a{padding:10px 11px;font-size:13.5px;}
+}
+@media (max-width:860px){
+  .wt-card--feature{grid-template-columns:1fr;}
+  .wt-card--feature .wt-media{min-height:0;aspect-ratio:4/3;}
+  .wt-card--feature .wt-body{padding:26px 24px;}
+  .wt-card--feature .wt-title{font-size:21px;}
+  .wt-card--feature .wt-desc{font-size:15px;}
+}
+@media (max-width:720px){
+  .wt-grid{grid-template-columns:1fr;}
+  /* di HP menu kembali jadi daftar vertikal — kembalikan ukuran normalnya */
+  .nav a{padding:16px 4px;font-size:14px;}
+}

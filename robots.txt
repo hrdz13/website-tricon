@@ -1,0 +1,8 @@
+# robots.txt — triconconsultant.com
+# Mengizinkan SEMUA mesin pencari (Google, Bing, dll) mengakses SELURUH halaman.
+# Tidak ada satu pun folder/halaman yang diblokir.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.triconconsultant.com/sitemap.xml
