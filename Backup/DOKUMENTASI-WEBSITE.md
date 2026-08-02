@@ -694,10 +694,12 @@ Foto: `foto1.jpg` (pekerjaan di pondasi turbin — dipakai sebagai cover) dan `c
 — yang pertama selalu jadi cover kartu.**
 
 Catatan: logo yang dipakai adalah logo **UPC Renewables** (disalin dari folder `upc/`,
-karena memang perusahaan yang sama). Papan lokasi menulis nama klien "PT. UPC Sidrap Bayu
-**Energi**" sedangkan papan proyek menulis "**Energy**" — di website dipakai ejaan
-"Energi". File `cover1.jpg` di folder itu adalah versi lama yang sudah tidak dipakai,
-boleh dihapus.
+karena memang perusahaan yang sama).
+
+**Ejaan nama klien: "Energi", bukan "Energy".** Papan lokasi PLTB menulis "PT. UPC Sidrap
+Bayu **Energi**", sedangkan papan proyek menulis "**Energy**" — sudah diputuskan memakai
+"Energi" di seluruh website. Ejaan ini berlaku juga di `js/projects-data.js` (10 penyebutan
+sudah diseragamkan). Kalau nanti menambah proyek untuk klien ini, tulis **Energi**.
 
 ---
 

@@ -113,7 +113,7 @@ window.TRICON_PROJECTS = [
     "category": "Power Plant",
     "sector": "Power Plant",
     "project": "Detail Design Engineering work for Mainsaft Storage Building O&M Facility",
-    "client": "UPC SIDRAP BAYU ENERGY",
+    "client": "UPC SIDRAP BAYU ENERGI",
     "year": "2024",
     "location": "SIDRAP",
     "scope": "Detail Design Drawing incl The Foundations Concrete Floor & Bearing Pad detail design Drawing"
@@ -248,7 +248,7 @@ window.TRICON_PROJECTS = [
     "category": "Power T&D",
     "sector": "Power T&D",
     "project": "Design Engineering Work for Main Shaft Storage Building for O&M Facility",
-    "client": "UPC Sidrap Bayu Energy",
+    "client": "UPC Sidrap Bayu Energi",
     "year": "2024",
     "location": "Sidrap/Sulawesi",
     "scope": "Detail Design Engineering Main Shaft Storage Building"
@@ -257,7 +257,7 @@ window.TRICON_PROJECTS = [
     "category": "Power T&D",
     "sector": "Power T&D",
     "project": "Design Warehouse and Mechanical, Civil, and Electrical",
-    "client": "UPC Sidrap Bayu Energy",
+    "client": "UPC Sidrap Bayu Energi",
     "year": "2024",
     "location": "Sidrap/Sulawesi",
     "scope": "Design Warehouse and Mechanical, Civil, and Electrical"
@@ -563,16 +563,16 @@ window.TRICON_PROJECTS = [
     "category": "Other",
     "sector": "POWER PLANT (PLTB)",
     "project": "ASSESSMENT PROTECTIONS STRUCTURE FOUNDATION WIND TURBINE",
-    "client": "SIDRAP BAYU ENERGY",
+    "client": "SIDRAP BAYU ENERGI",
     "year": "2026",
     "location": "2PG6+P4V, Mattirotasi, Watang Pulu, Sidenreng Rappang Regency, South Sulawesi 91661",
-    "scope": "Maintenance of Steel and Concrete Structures for Wind Turbine Infrastructure at PLTB Sidrap – Sidrap Bayu Energy"
+    "scope": "Maintenance of Steel and Concrete Structures for Wind Turbine Infrastructure at PLTB Sidrap – Sidrap Bayu Energi"
   },
   {
     "category": "Other",
     "sector": "POWER PLANT (PLTB)",
     "project": "ASSESEMENT AND MAINTENANCE BATTERY",
-    "client": "UPC SIDRAP BAYU ENERGY",
+    "client": "UPC SIDRAP BAYU ENERGI",
     "year": "2025",
     "location": "2PG6+P4V, Mattirotasi, Watang Pulu, Sidenreng Rappang Regency, South Sulawesi 91661",
     "scope": "ASSESEMENT AND MAINTENANCE BATTERY"
@@ -581,7 +581,7 @@ window.TRICON_PROJECTS = [
     "category": "Other",
     "sector": "POWER PLANT (PLTB)",
     "project": "Warehouse Facility for Wind Turbine Blade Maintenance and Storage",
-    "client": "UPC SIDRAP BAYU ENERGY",
+    "client": "UPC SIDRAP BAYU ENERGI",
     "year": "2025",
     "location": "2PG6+P4V, Mattirotasi, Watang Pulu, Sidenreng Rappang Regency, South Sulawesi 91661",
     "scope": "Detail Design And Contructions"
@@ -590,16 +590,16 @@ window.TRICON_PROJECTS = [
     "category": "Other",
     "sector": "POWER PLANT (PLTB)",
     "project": "MAINTENANCE WIND TURBINE",
-    "client": "SIDRAP BAYU ENERGY",
+    "client": "SIDRAP BAYU ENERGI",
     "year": "2024",
     "location": "2PG6+P4V, Mattirotasi, Watang Pulu, Sidenreng Rappang Regency, South Sulawesi 91661",
-    "scope": "NGR Maintenance Services for Wind Turbine Facilities at Sidrap Bayu Energy Wind Farm (PLTB Sidrap)"
+    "scope": "NGR Maintenance Services for Wind Turbine Facilities at Sidrap Bayu Energi Wind Farm (PLTB Sidrap)"
   },
   {
     "category": "Other",
     "sector": "POWER PLANT (PLTB)",
     "project": "MAINTENANCE WIND TURBINE",
-    "client": "SIDRAP BAYU ENERGY",
+    "client": "SIDRAP BAYU ENERGI",
     "year": "2024",
     "location": "2PG6+P4V, Mattirotasi, Watang Pulu, Sidenreng Rappang Regency, South Sulawesi 91661",
     "scope": "SPARE PART COVER BRUSH FOR LIGHTING HAMMER PROTECTIONS"
